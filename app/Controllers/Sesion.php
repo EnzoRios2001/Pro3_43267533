@@ -23,8 +23,8 @@ class Sesion extends BaseController
         }
         if ($usuario && password_verify($password, $usuario['password'])) {
             // Login exitoso, puedes guardar datos en sesión
-            session()->set(['usuario_id' => $usuario['id'], 'usuario_nombre' => $usuario['nombre']]);
-            return redirect()->to('/principal');
+            session()->set(['id_usuario' => $usuario['id_usuario'], 'nombre' => $usuario['nombre']]);
+            return redirect()->to('sesion')->with('success', 'Login exitoso, Bienvenido ' . $usuario['nombre']);
         } else {
             return redirect()->back()->with('error', 'Credenciales incorrectas');
         }
@@ -45,6 +45,6 @@ class Sesion extends BaseController
             'email' => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT)
         ]);
-        return redirect()->to('/sesion')->with('success', 'Registro exitoso, ahora puedes iniciar sesión');
+        return redirect()->to('sesion')->with('success', 'Registro exitoso, ahora puedes iniciar sesión');
     }
 }

@@ -47,7 +47,6 @@
         </form>
     </div>
 </div>
-<script src="<?= base_url('assets/js/sesion.js') ?>"></script>
 <script>
 function toggleForm() {
     const loginForm = document.getElementById('loginForm');
