@@ -47,4 +47,10 @@ class Sesion extends BaseController
         ]);
         return redirect()->to('sesion')->with('success', 'Registro exitoso, ahora puedes iniciar sesión');
     }
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('sesion')->with('success', 'Sesión cerrada correctamente');
+    }
 }

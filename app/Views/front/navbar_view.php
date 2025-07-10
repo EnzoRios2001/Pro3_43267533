@@ -12,6 +12,9 @@
         <li class="nav-item">
           <a class="nav-link" href="sesion">Iniciar Sesión</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="usuariocrud">CRUD Usuarios</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Talentos Digitales
@@ -24,6 +27,13 @@
             <li><a class="dropdown-item" href="#">Contacto</a></li>
           </ul>
         </li>
+        <!-- Bienvenido y logout solo si está logueado -->
+        <?php if (session('nombre')): ?>
+        <li class="nav-item ms-3 d-flex align-items-center">
+          <span class="text-white me-2">Bienvenido, <b><?= esc(session('nombre')) ?></b></span>
+          <a href="<?= site_url('sesion/logout') ?>" class="btn btn-outline-light btn-sm">Cerrar sesión</a>
+        </li>
+        <?php endif; ?>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
